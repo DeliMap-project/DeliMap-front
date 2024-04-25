@@ -1,0 +1,26 @@
+.menu-btns {
+    position: absolute;
+    top:20px;
+    right:100px;
+    z-index:99;
+}
+.menu-btns .active{
+    color: white;
+    background-color:LightSkyBlue;
+}
+.menu-btns .btns-wrapper {
+    display: flex;
+    background: white;
+    /* padding:10px; */
+    box-shadow: 0 0 5px #444;
+    border-radius: 10px;
+    padding:5px;
+}
+.menu-btns ul li{
+    margin-left: 20px;
+}
+.btn-border {
+    /* box-shadow: 0px 0px 5px #444; */
+    padding:10px;
+    border-radius: 10px;
+}
