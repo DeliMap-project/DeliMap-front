@@ -27,7 +27,7 @@ const BoardList = () => {
                             </div>
                             <div className="modal-container">
                                 <div className="modal-header">
-                                    <div className="board_local">영등포구 여의도동test</div>
+                                    <div className="board_local">영등포구 여의도동</div>
                                     <slot name="header">
                                         <div className="board_list">
                                             {board_list.map(boardList => {
