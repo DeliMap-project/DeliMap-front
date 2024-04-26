@@ -14,9 +14,6 @@ class Menu extends Component {
     async componentDidMount() { // vue에서 Mounted역할
         console.log('Component mounted!');
         // 마운팅 후 실행되는 코드
-        const res = await axios.post('http://localhost:3300/board/list');
-        this.board_list = res.data;
-        console.log('this.board_list : ', this.board_list)
     }
 
     render() {
