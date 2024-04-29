@@ -7,7 +7,7 @@
     animation: slide-in 0.6s ease-in;
 }
 .modal-wrapper {
-    width: 350px;
+    width: 380px;
     height: 100%;
     background-color: white;
 
@@ -73,6 +73,14 @@
     }
     to {
         transform: translateX(0%);
+    }
+}
+@keyframes detailSlide-in {
+    from {
+        transform: translateX(-40px);
+    }
+    to {
+        transform: translateX(-420px);
     }
 }
 @keyframes slide-out {
