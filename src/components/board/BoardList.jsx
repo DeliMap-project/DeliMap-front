@@ -1,13 +1,18 @@
-import '/src/styles/board/BoardList.css';
+import BoardDetail from "./BoardDetail.jsx";
+import '/src/styles/board/BoardList.css'    ;
 import {useState, useEffect } from "react";
 import axios from "axios";
-// import BoardDetail from "./BoardDetail.jsx";
 const BoardList = () => {
-    const [isActive, setIsActive ] = useState(false);
+    const [isActive, setIsActive, isDetail, setIsDetail ] = useState(false);
+    const [ isDetail1 ] = useState(true);
     const [board_list, setBoardList] = useState([]);
 
     const handleClick = () => {
         setIsActive(!isActive);
+    };
+    const detailClick = () =>{
+        setIsDetail(!isDetail);
+
     };
     useEffect(() => {
         axios.post('http://localhost:3300/board/list')
@@ -33,7 +38,7 @@ const BoardList = () => {
                                             {board_list.map(boardList => {
                                                 return (
                                                     <div key={boardList.board_no}>
-                                                        <div className="board_list_name">{boardList.board_name}</div>
+                                                        <div className="board_list_name" onClick={detailClick}>{boardList.board_name}</div>
                                                         <div className="board_list_content">{boardList.board_content}</div>
                                                         <div className="board_list_phone">{boardList.board_phone}</div>
                                                         <div className="board_list_review">리뷰 : {boardList.review_cnt}</div>
@@ -49,7 +54,7 @@ const BoardList = () => {
                             </div>
                         </div>
                     </div>
-                {/*<BoardDetail/>*/}
+                {isDetail ? <BoardDetail /> : null}
             </>
         )
 }

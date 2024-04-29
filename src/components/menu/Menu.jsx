@@ -7,8 +7,9 @@ class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = { // vue에서 data() - return{} 역할
-            board_list: [],
+            // boardModal : false,
         };
+
     }
 
     async componentDidMount() { // vue에서 Mounted역할
@@ -38,7 +39,6 @@ class Menu extends Component {
 }
 
 function onBoardList() {
-    alert('클릭');
 }
 
 export default Menu;

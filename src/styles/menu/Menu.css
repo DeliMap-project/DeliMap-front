@@ -1,7 +1,7 @@
 .menu-btns {
     position: absolute;
     top:20px;
-    right:100px;
+    left:100px;
     z-index:99;
 }
 .menu-btns .active{
