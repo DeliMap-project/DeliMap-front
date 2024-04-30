@@ -1,47 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800&family=Jua&family=Ultra&display=swap');
+
 .detail-container {
     position: fixed;
-    z-index: 101;
+    z-index: 99;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: 380px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    animation: slide-in 0.3s ease-in;
 }
 .detail-wrapper {
-    width: 500px;
-    height: 600px;
+    width: 400px;
+    height: 100%;
     background-color: white;
-    border-radius: 20px;
 }
 .modal-close {
     position: absolute;
     width: 40px;
     height: 40px;
-    transform: translateX(-40px);
-    background-color: rgba(0,0,0,0.1);
+    transform: translate(355px, 3px);
     display: flex;
     justify-content: center;
     border-radius: 6px 0 0 6px;
     cursor: pointer;
 }
-.modal-close:hover {
-    background-color: rgb(248, 179, 60);
-    color: white;
-}
 .modal-close span {
     font-size: 22px;
     cursor: pointer;
 }
-.display-none {
-    display: none;
+.detail_del {
+    padding-top: 50px;
+    margin: 0 20px;
 }
-.display-block {
+.detail_image {
+    border: 1px solid black;
+    width: 100%;
+    height: 200px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+}
+.detail_image div {
+    line-height: 222px;
+}
+.backIcon img{
+    width: 25px;
+    height: 45px;
+    cursor: pointer;
+}
+.nextIcon {
+    float: right;
+}
+.nextIcon img{
+    width: 25px;
+    height: 45px;
+    cursor: pointer;
+}
+.detail_body {
+    margin-left: 5px;
+    font-family: "Gothic A1", sans-serif;
+}
+.detail_name {
+    font-size: 18px;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 700;
+}
+.detail_content {
+    margin-top: 3px;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 300;
+}
+.detail_reviewScore {
+    display: flex;
+    margin: 15px 0 10px 0;
+}
+.detail_reviewScore label {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+.detail_reviewScore img {
+    width: 30px;
+    height: 30px;
+}
+.reviewScore {
+    font-weight: 600;
+    margin-left: 3px;
+}
+.detail_phone {
+    margin-top: 10px;
+}
+.detail_phone label {
+    display: flex;
+    align-items: center;
+}
+.detail_phone span{
+    margin-left: 7px;
+    font-size: 17px;
+    font-weight: 400;
+}
+.detail_address {
+    margin-top: 20px;
+}
+.detail_address label {
+    display: flex;
+    align-items: center;
+}
+.detail_address span{
+    margin-left: 7px;
+    font-size: 17px;
+    font-weight: 400;
+}
+.copyAddress {
+    cursor: pointer;
+    padding-left: 10px;
+}
+.copyAddress:hover {
+    color: rgb(248, 179, 60);
+}
+.review_btn {
+    margin-top: 20px;
+}
+.review_btn label {
+    display: flex;
+    align-items: center;
+}
+.reviewInsert {
+    cursor: pointer;
+}
+.review_btn img{
+    margin-left: auto;
+    cursor: pointer;
+
 }
 
 
+.borderLine {
+    border: rgb(165, 164, 164) 7px solid;
+    margin: 40px 0;
+}
 .drag-disable {
     -ms-user-select: none;
     -webkit-user-select: none;
