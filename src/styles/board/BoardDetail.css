@@ -4,7 +4,7 @@
     position: fixed;
     z-index: 99;
     top: 0;
-    right: 380px;
+    right: 385px;
     height: 100%;
     animation: slide-in 0.3s ease-in;
 }
@@ -15,8 +15,8 @@
 }
 .modal-close {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 30px;
     transform: translate(355px, 3px);
     display: flex;
     justify-content: center;
@@ -26,6 +26,13 @@
 .modal-close span {
     font-size: 22px;
     cursor: pointer;
+}
+.detailList {
+    overflow-y: scroll;
+    height: 100%;
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+
 }
 .detail_del {
     padding-top: 50px;

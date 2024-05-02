@@ -61,7 +61,7 @@ const BoardList = () => {
                                         <div className="board_list">
                                             {board_list.map(boardList => {
                                                 return (
-                                                    <div key={boardList.board_no}>
+                                                    <div className={'board_list_wrap'} key={boardList.board_no}>
                                                         <div className="board_list_name">
                                                             <span
                                                                 onClick={() => boardDetail(boardList.board_no)}>{boardList.board_name}</span>

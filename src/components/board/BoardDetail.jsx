@@ -2,6 +2,8 @@ import '/src/styles/board/BoardDetail.css';
 import {useState, useEffect} from "react";
 import axios from "axios";
 import BoardList from "./BoardList.jsx";
+import ReviewInsert from "./ReviewInsert.jsx";
+import ReivewList from "./ReivewList.jsx";
 
 // eslint-disable-next-line react/prop-types
 const BoardDetail = ({onClose}) => {
@@ -17,6 +19,9 @@ const BoardDetail = ({onClose}) => {
     const fiveScore = isDetailList.review_score <= 4.5 ? binScore : fullScore;
     const zeroScore = isDetailList.review_score <= 0.1 ? '0' : isDetailList.review_score;
 
+    const showDetail = () => {
+        setIsReview(!isReview);
+    }
     const reviewInsert = () => {
         setIsReview(!isReview);
     };
@@ -31,6 +36,7 @@ const BoardDetail = ({onClose}) => {
             alert('주소복사에 실패했습니다!');
         }
     };
+    // 상세보기
     useEffect( () => {
         const board_no = localStorage.getItem('board_no');
         let param = {
@@ -49,12 +55,16 @@ const BoardDetail = ({onClose}) => {
          });
     }, []);
 
+
+
     return (
         <>
+            {isReview ?
+            <ReviewInsert onShow={showDetail}/> :
             <div className={'detail-container'}>
                 <div className={'detail-wrapper'}>
                     <div className={'modal-close'} onClick={onClose}><span>X</span></div>
-                    <div>
+                    <div className={'detailList'}>
                         <div className={'detail_del'}>
                             <div className={'detail_del_img drag-disable'}>
                                 <div className={'detail_image'}>
@@ -99,9 +109,11 @@ const BoardDetail = ({onClose}) => {
                             </div>
                         </div>
                         <div className={'borderLine'}/>
+                        <ReivewList/>
                     </div>
                 </div>
             </div>
+            }
         </>
     )
 
