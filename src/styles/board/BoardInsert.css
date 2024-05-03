@@ -1,0 +1,162 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.boardInsert_container {
+}
+.boardInsert_wrapper {
+    margin: 0 auto;
+    border: 1px solid rgb(248, 179, 60);
+    border-radius: 20px;
+    padding: 20px;
+}
+.tasty_info {
+}
+.mainTitle {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+.tasty_title {
+    margin: 15px 15px 15px 20px;
+}
+.tasty_title label {
+    font-size: 17px;
+}
+.insert_name {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 3px;
+}
+.insert_name:focus {
+    outline: none ;
+}
+.tasty_content {
+    margin: 15px 15px 15px 20px;
+}
+.tasty_content label {
+    font-size: 17px;
+}
+.insert_content {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 15px 5px 5px 5px;
+    height: 70px;
+    resize: none;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+.insert_content::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+.insert_content:focus {
+    outline: none;
+}
+.tasty_address {
+    margin: 15px 15px 15px 20px;
+}
+.tasty_address label {
+    font-size: 17px;
+}
+.insert_address {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 3px;
+}
+.insert_address:focus {
+    outline: none ;
+}
+.tasty_phone {
+    margin: 15px 15px 15px 20px;
+}
+.tasty_phone label {
+    font-size: 17px;
+}
+.insert_phone {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 3px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+.insert_phone:focus {
+    outline: none ;
+}
+.tasty_file {
+    margin: 15px 15px 15px 20px;
+}
+.tasty_file span {
+    color: gray;
+    font-size: 15px;
+}
+.tasty_file label {
+    font-size: 17px;
+}
+.insert_file {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 3px;
+}
+.insert_file:focus {
+    outline: none ;
+}
+.insert_image {
+    width: 100%;
+    height: 180px;
+    border-radius: 20px 20px 0 0 ;
+}
+.tasty_num {
+    margin: 15px 15px 15px 20px;
+}
+.tasty_num label {
+    font-size: 17px;
+}
+.insert_num {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 3px;
+}
+.insert_num:focus {
+    outline: none ;
+}
+.goInsert {
+    text-align: center;
+    margin: 20px auto;
+}
+.goCancel_btn {
+    background-color: rgb(248, 179, 60);
+    font-size: 20px;
+    color: white;
+    border-radius: 20px;
+    width: 100px;
+    height: 40px;
+    margin: 30px 20px 0 0 ;
+    padding: 0;
+
+}
+.goInsert_btn {
+    background-color: rgb(248, 179, 60);
+    font-size: 20px;
+    color: white;
+    border-radius: 20px;
+    width: 100px;
+    height: 40px;
+    margin-top: 30px;
+    padding: 0;
+}
+.show_wrapper {
+    display: none;
+}

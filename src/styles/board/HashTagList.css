@@ -1,19 +1,19 @@
-.modal-mask {
+.hashTagList_modal-mask {
     position: fixed;
-    z-index: 100;
+    z-index: 101;
     top: 0;
     right: 0;
     height: 100%;
     animation: slide-in 0.6s ease-in;
     border-left: rgb(165, 164, 164) 7px solid;
 }
-.modal-wrapper {
+.hashTagList_modal-wrapper {
     width: 380px;
     height: 100%;
     background-color: white;
 
 }
-.modal-x {
+.hashTagList_modal-x {
     position: absolute;
     width: 40px;
     height: 40px;
@@ -24,16 +24,16 @@
     border-radius: 6px 0 0 6px;
     cursor: pointer;
 }
-.modal-x:hover {
+.hashTagList_modal-x:hover {
     background-color: rgb(248, 179, 60);
     color: white;
 
 }
-.modal-x span {
+.hashTagList_modal-x span {
     font-size: 22px;
     cursor: pointer;
 }
-.modalAll-x {
+.hashTagList_modalAll-x {
     position: absolute;
     width: 40px;
     height: 40px;
@@ -45,23 +45,23 @@
     cursor: pointer;
     animation: detailSlide-in 0.3s ease-in;
 }
-.modalAll-x:hover {
+.hashTagList_modalAll-x:hover {
     background-color: rgb(248, 179, 60);
     color: white;
 
 }
-.modalAll-x span {
+.hashTagList_modalAll-x span {
     font-size: 22px;
     cursor: pointer;
 }
-.modal-container {
+.hashTagList_modal-container {
     overflow-y: scroll;
     height: 100%;
     -ms-overflow-style: none; /* 인터넷 익스플로러 */
     scrollbar-width: none; /* 파이어폭스 */
 }
 
-.modal-container::-webkit-scrollbar {
+.hashTagList_modal-container::-webkit-scrollbar {
     display: none; /* 크롬, 사파리, 오페라, 엣지 */
 }
 

@@ -1,21 +1,19 @@
 import BoardDetail from "./BoardDetail.jsx";
-import '/src/styles/board/BoardList.css';
+import '/src/styles/board/HashTagList.css';
 import {useState, useEffect } from "react";
 import axios from "axios";
 import ReviewInsert from "./ReviewInsert.jsx";
-import HashTagList from "./HashTagList.jsx";
-const BoardList = () => {
+const HashTagList = () => {
     const [isDetail, setIsDetail ] = useState(false);
     const [isList, setIsList ] = useState(false);
     const [isListAll, setIsListAll ] = useState(false);
-    const [board_list, setBoardList] = useState([]);
     const [hashtag_list, setHashtagList] = useState([]);
 
     const boardToggle = () => {
-        setIsList(!isList);
+        setIsList(false);
     };
     const boardAllToggle = () => {
-        setIsListAll(!isListAll);
+        setIsListAll(false);
     };
     const boardDetail = (board_no) => {
         // setIsDetail((isDetail) => !isDetail);
@@ -28,20 +26,24 @@ const BoardList = () => {
     const closeDetail =() => {
         setIsDetail(false);
     }
-    useEffect(() => {
-        axios.post('http://localhost:3300/board/list')
+
+    useEffect( () => {
+        const review_hashtag = localStorage.getItem('review_hashtag');
+        let param = {
+            review_hashtag: '%' + review_hashtag + '%',
+        }
+        axios.post('http://localhost:3300/board/hashtaglist', param)
             .then(response => {
-                setBoardList(response.data);
+                setHashtagList(response.data);
             });
     }, []);
         return (
             <>
-
                 <div className={isListAll ? 'animatedAll' : 'normalAll'}>
-                    <div className={'modal-mask ' + (isList ? 'animated-button' : 'normal-button')}>
-                        <div className="modal-wrapper">
+                    <div className={'hashTagList_modal-mask ' + (isList ? 'animated-button' : 'normal-button')}>
+                        <div className="hashTagList_modal-wrapper">
                             {isDetail ?
-                                <div className="modalAll-x drag-disable">
+                                <div className="hashTagList_modalAll-x drag-disable">
                                 <span onClick={boardAllToggle}>
                                     {isListAll ?
                                         <img className='toggle_open' src={'src/assets/icons8-back-64.png'} alt={'열기'}/> :
@@ -49,35 +51,27 @@ const BoardList = () => {
                                 </span>
                                 </div>
                                 :
-                                <div className="modal-x drag-disable">
+                                <div className="hashTagList_modal-x drag-disable">
                             <span onClick={boardToggle}>
                                 {isList ?
                                     <img className='toggle_open' src={'src/assets/icons8-back-64.png'} alt={'열기'}/> :
                                     <img className='toggle_close' src={'src/assets/icons8-forward-64.png'} alt={'닫기'}/>}
                             </span>
                                 </div>}
-                            <div className="modal-container">
-                                <div className="modal-header">
-                                    <div className="board_local">영등포구 여의도동</div>
+                            <div className="hashTagList_modal-container">
+                                <div className="hashTagList_modal-header">
+                                    <div className="board_local">영등포구 여의도동1</div>
                                     <slot name="header">
                                         <div className="board_list">
-                                            {board_list.map(boardList => {
+                                            {hashtag_list.map(hashtagList => {
                                                 return (
-                                                    <div className={'board_list_wrap'} key={boardList.board_no}>
+                                                    <div className={'board_list_wrap'} key={hashtagList.board_no}>
                                                         <div className="board_list_name">
-                                                            <span onClick={() => boardDetail(boardList.board_no)}>{boardList.board_name}</span>
+                                                            <span onClick={() => boardDetail(hashtagList.board_no)}>{hashtagList.board_name}</span>
                                                         </div>
-                                                        <div className="board_list_content">{boardList.board_content}</div>
-                                                        <div className="board_list_phone">{boardList.board_phone}</div>
-                                                        <div className="board_list_review">리뷰 : {boardList.review_cnt}</div>
-                                                        <div className="board_list_hashtag">
-                                                            {/*<span>{boardList.review_hashtag}</span>*/}
-                                                            <span>{boardList.review_hashtag.split(', ')[0]}</span>
-                                                            <span>{boardList.review_hashtag.split(', ')[1]}</span>
-                                                            <span>{boardList.review_hashtag.split(', ')[2]}</span>
-                                                            <span>{boardList.review_hashtag.split(', ')[3]}</span>
-                                                            <span>{boardList.review_hashtag.split(', ')[4]}</span>
-                                                        </div>
+                                                        <div className="board_list_content">{hashtagList.board_content}</div>
+                                                        <div className="board_list_phone">{hashtagList.board_phone}</div>
+                                                        <div className="board_list_review">리뷰 : {hashtagList.review_cnt}</div>
                                                         <div className="board_list_img"><img src="/src/assets/고양이1.jpg" alt="이미지"/></div>
                                                         <hr className="list_hr"/>
                                                     </div>
@@ -95,4 +89,4 @@ const BoardList = () => {
         )
 }
 
-export default BoardList
+export default HashTagList
