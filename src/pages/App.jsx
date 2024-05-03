@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import RouteTest1 from './RouteTest1';
 import RouteTest2 from './RouteTest2'
 import DefaultLayer from './DefaultLayer'
+import BoardInsert from '/src/components/board/BoardInsert.jsx'
 
 function App() {
   const test = async () => {
@@ -14,6 +15,7 @@ function App() {
     {path: '/', element: <DefaultLayer/>},
     {path: '/route1', element: <RouteTest1/>},
     {path: '/route2', element: <RouteTest2/>},
+    {path: '/BoardInsert', element: <BoardInsert/>},
   ])
   
   return (

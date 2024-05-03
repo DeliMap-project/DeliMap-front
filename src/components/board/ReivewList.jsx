@@ -5,6 +5,7 @@ import axios from "axios";
 const ReviewList = () => {
 
     const [isReviewList, setIsReviewList ] = useState([]);
+    const [isReviewHashTag, setIsReviewHashTag ] = useState([]);
 
     // 리뷰 리스트
     useEffect(() => {
@@ -18,8 +19,14 @@ const ReviewList = () => {
             });
     }, []);
 
+    const hashTagListView = (review_hashtag) => {
+        localStorage.setItem('review_hashtag', review_hashtag);
+        setIsReviewHashTag(true);
+    }
+
     return(
         <>
+
             <div className={'reviewList_title'}>리뷰</div>
             {isReviewList.map(ReviewList => {
                 return (
@@ -35,24 +42,46 @@ const ReviewList = () => {
                         </div>
                         <div className={'reviewList_score'}>
                             <label>
-                                <img src={'/src/assets/icons8-fullstar-48.png'} id="review_score1" className="review_score1" alt="별점" />
-                                <img src={'/src/assets/icons8-fullstar-48.png'} id="review_score2" className="review_score2" alt="별점" />
-                                <img src={'/src/assets/icons8-fullstar-48.png'} id="review_score3" className="review_score3" alt="별점" />
-                                <img src={'/src/assets/icons8-fullstar-48.png'} id="review_score4" className="review_score4" alt="별점" />
-                                <img src={'/src/assets/icons8-fullstar-48.png'} id="review_score5" className="review_score5" alt="별점" />
+                                {ReviewList.review_score >= 1 ?
+                                    <img src={'/src/assets/icons8-fullstar-48.png'} id="review_score1" className="review_score1" alt="별점"/> :
+                                    <img src={'/src/assets/icons8-binstar-48.png'} id="review_score1" className="review_score1" alt="별점"/>
+                                }
+                                {ReviewList.review_score >= 2 ?
+                                    <img src={'/src/assets/icons8-fullstar-48.png'} id="review_score1" className="review_score1" alt="별점"/> :
+                                    <img src={'/src/assets/icons8-binstar-48.png'} id="review_score1" className="review_score1" alt="별점"/>
+                                }
+                                {ReviewList.review_score >= 3 ?
+                                    <img src={'/src/assets/icons8-fullstar-48.png'} id="review_score1" className="review_score1" alt="별점"/> :
+                                    <img src={'/src/assets/icons8-binstar-48.png'} id="review_score1" className="review_score1" alt="별점"/>
+                                }
+                                {ReviewList.review_score >= 4 ?
+                                    <img src={'/src/assets/icons8-fullstar-48.png'} id="review_score1" className="review_score1" alt="별점"/> :
+                                    <img src={'/src/assets/icons8-binstar-48.png'} id="review_score1" className="review_score1" alt="별점"/>
+                                }
+                                {ReviewList.review_score >= 5 ?
+                                    <img src={'/src/assets/icons8-fullstar-48.png'} id="review_score1" className="review_score1" alt="별점"/> :
+                                    <img src={'/src/assets/icons8-binstar-48.png'} id="review_score1" className="review_score1" alt="별점"/>
+                                }
                                 <div className="reviewList_reveiw_date">{ReviewList.review_date}</div>
                             </label>
                         </div>
                         <div className="reviewList_review_content">
-                            <span>{ReviewList.review_content}</span>
+                            <span>
+                                {ReviewList.review_content}
+                            </span>
                         </div>
                         <div className="reviewList_review_hashtag">
-                            <span>{ReviewList.review_hashtag}</span>
+                            <span onClick={() => hashTagListView(ReviewList.review_hashtag.split(', ')[0])}>{ ReviewList.review_hashtag !== null ? ReviewList.review_hashtag.split(', ')[0] : ''}</span>
+                            <span onClick={() => hashTagListView(ReviewList.review_hashtag.split(', ')[1])}>{ ReviewList.review_hashtag !== null ? ReviewList.review_hashtag.split(', ')[1] : ''}</span>
+                            <span onClick={() => hashTagListView(ReviewList.review_hashtag.split(', ')[2])}>{ ReviewList.review_hashtag !== null ? ReviewList.review_hashtag.split(', ')[2] : ''}</span>
+                            <span onClick={() => hashTagListView(ReviewList.review_hashtag.split(', ')[3])}>{ ReviewList.review_hashtag !== null ? ReviewList.review_hashtag.split(', ')[3] : ''}</span>
+                            <span onClick={() => hashTagListView(ReviewList.review_hashtag.split(', ')[4])}>{ ReviewList.review_hashtag !== null ? ReviewList.review_hashtag.split(', ')[4] : ''}</span>
                         </div>
                         <hr className="reviewList_hr"/>
                     </div>
                 )
             })}
+
         </>
 
     )
