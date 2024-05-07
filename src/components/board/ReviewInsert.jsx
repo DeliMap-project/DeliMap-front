@@ -33,6 +33,8 @@ const ReviewInsert = ({onShow}) => {
 
     const reviewReg = () => {
         const board_no = localStorage.getItem('board_no');
+        // let review_hashtag = review_hashtag.replace(/#/g, ', #').substring(2);
+
         if(review_content === ''){
             alert("리뷰 내용을 입력해주세요.");
             return false
@@ -42,7 +44,7 @@ const ReviewInsert = ({onShow}) => {
             member_nickname: '닉네임2',
             review_content: review_content,
             review_score: review_score,
-            review_hashtag: review_hashtag,
+            review_hashtag: review_hashtag.replace(/#/g, ', #').substring(2),
             board_no: board_no,
         }
         axios.post('http://localhost:3300/review/insert', param).then(response => {
@@ -132,7 +134,7 @@ const ReviewInsert = ({onShow}) => {
         <>
             <div className="review-modal-mask">
                 <div className="review-modal-wrapper">
-                    <div className="review-modal-x drag-disable" onClick={onShow}>
+                    <div className="review-modal-x drag-disable" onClick={reviewCancel}>
                         <span>X</span>
                     </div>
                     <div className="review-modal-container">

@@ -4,6 +4,10 @@ import RouteTest1 from './RouteTest1';
 import RouteTest2 from './RouteTest2'
 import DefaultLayer from './DefaultLayer'
 import BoardInsert from '/src/components/board/BoardInsert.jsx'
+import Join from "../components/member/Join.jsx";
+import Login from "../components/member/Login.jsx";
+import IdFind from "../components/member/IdFind.jsx";
+import PwFind from "../components/member/PwFind.jsx";
 
 function App() {
   const test = async () => {
@@ -16,6 +20,10 @@ function App() {
     {path: '/route1', element: <RouteTest1/>},
     {path: '/route2', element: <RouteTest2/>},
     {path: '/BoardInsert', element: <BoardInsert/>},
+    {path: '/Join', element: <Join/>},
+    {path: '/Login', element: <Login/>},
+    {path: '/IdFind', element: <IdFind/>},
+    {path: '/PwFind', element: <PwFind/>},
   ])
   
   return (

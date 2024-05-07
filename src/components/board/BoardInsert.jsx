@@ -10,25 +10,51 @@ const BoardInsert = () => {
     const [board_content, setBoard_content ] = useState('');
     const [board_address, setBoard_address ] = useState('');
     const [board_phone, setBoard_phone ] = useState('');
-    const [board_corporatenum, setBoard_corporatenum ] = useState('');
+    const [board_corporateNum, setBoard_corporateNum ] = useState('');
 
     const navigate = useNavigate();
 
   const goCancel_btn = () => {
-      if (confirm("리뷰 등록을 취소하시겠습니까?")) {
+      if (confirm("등록을 취소하시겠습니까?")) {
           navigate("/");
       } else {
           return false;
       }
   }
   const goInsert_btn = () => {
+
+      if(file_no === ''){
+          alert('대표이미지를 입력해주세요.');
+          return false;
+      }
+      if(board_name === ''){
+          alert('맛집 이름을 입력해주세요.');
+          return false;
+      }
+      if(board_content === ''){
+          alert('맛집 설명을 입력해주세요.');
+          return false;
+      }
+      if(board_address === ''){
+          alert('맛집 주소를 입력해주세요.');
+          return false;
+      }
+      if(board_phone === ''){
+          alert('맛집 전화번호를 입력해주세요.');
+          return false;
+      }
+      if(board_corporateNum === ''){
+          alert('사업자번호를 입력해주세요.');
+          return false;
+      }
+
       let param = {
           member_id : '아이디1',
           board_name : board_name,
           board_content : board_content,
           board_phone : board_phone,
           board_address : board_address,
-          corporatenum : board_corporatenum,
+          corporateNum : board_corporateNum,
           img : file_no
       }
       axios.post('http://localhost:3300/board/addBoard', param).then(response => {
@@ -64,7 +90,7 @@ const BoardInsert = () => {
                         </div>
                         <div className="tasty_num">
                             <label htmlFor="insert_num">사업자 번호</label>
-                            <input type="text" id="insert_num" className="insert_num" autoComplete="off" placeholder="사업자 번호를 입력해주세요" value={board_corporatenum} onChange={(e) => setBoard_corporatenum(e.target.value)}/>
+                            <input type="text" id="insert_num" className="insert_num" autoComplete="off" placeholder="사업자 번호를 입력해주세요" value={board_corporateNum} onChange={(e) => setBoard_corporateNum(e.target.value)}/>
                         </div>
                         <div className="goInsert">
                             <button onClick={goCancel_btn} className="goCancel_btn">취소</button>

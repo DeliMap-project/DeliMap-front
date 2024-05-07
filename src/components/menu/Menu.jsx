@@ -11,6 +11,9 @@ const Menu = () => {
     const onboardInsert = () => {
         navigate("/BoardInsert");
     }
+    const login = () => {
+        navigate("/Login");
+    }
         return (
 
             <div>
@@ -22,7 +25,7 @@ const Menu = () => {
                         <button className="btn-border">채팅</button>
                         <button className="btn-border">내정보수정</button>
                         <button className="btn-border" onClick={onboardInsert}>맛집추가</button>
-                        <button className="btn-border"> 로그인(임시)< /button>
+                        <button className="btn-border" onClick={login}>로그인< /button>
 
                     </div>
                 </div>
