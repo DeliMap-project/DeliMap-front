@@ -73,6 +73,7 @@
     font-size: 12px;
     margin-bottom: 5px;
     margin-left: 5px;
+    color: red;
 }
 .join-pw {
     width: 360px;
@@ -96,6 +97,7 @@
     font-size: 12px;
     margin-bottom: 5px;
     margin-left: 5px;
+    color: red;
 }
 .join-name {
     width: 360px;
@@ -115,6 +117,12 @@
     color: #a2a2a1;
     font-size: 14px;
 }
+.name_check_memo {
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    color: red;
+}
 .join-nickname {
     width: 360px;
     height: 35px;
@@ -133,6 +141,12 @@
     color: #a2a2a1;
     font-size: 14px;
 }
+.nickname_check_memo {
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    color: red;
+}
 .join-phone {
     width: 360px;
     height: 35px;
@@ -150,6 +164,12 @@
 .join-phone::placeholder {
     color: #a2a2a1;
     font-size: 14px;
+}
+.phone_check_memo {
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    color: red;
 }
 .join-email {
     width: 360px;
@@ -204,18 +224,27 @@
     outline: 1px solid rgb(248, 179, 60);
 }
 .join-btn {
-    width: 357px;
-    padding: 10px;
+    padding: 10px 0;
     margin-top: 50px;
     margin-bottom: 35px;
-    text-align: center;
-    background-color: rgb(248, 179, 60);
-    cursor: pointer;
-    border-radius: 4px;
 }
 .join-btn span {
-    font-size: 25px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: rgb(248, 179, 60);
+    font-size: 21px;
+    cursor: pointer;
+    display: inline-block;
+    width: 45%;
+    height: 45px;
+    line-height: 45px;
     color: white;
+}
+.join_cancelBtn {
+    margin-right: 7px;
+}
+.join_regBtn {
+    margin-left: 11px;
 }
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 .join-label-text {
