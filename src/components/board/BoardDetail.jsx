@@ -4,9 +4,12 @@ import axios from "axios";
 import BoardList from "./BoardList.jsx";
 import ReviewInsert from "./ReviewInsert.jsx";
 import ReivewList from "./ReivewList.jsx";
+import {useNavigate} from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const BoardDetail = ({onClose}) => {
+    const navigate = useNavigate();
+
     const [isDetailList, setIsDetailList ] = useState([]);
     const [isReview, setIsReview ] = useState(false);
 
@@ -18,12 +21,19 @@ const BoardDetail = ({onClose}) => {
     const fourScore = isDetailList.review_score <= 3.5 ? binScore : fullScore;
     const fiveScore = isDetailList.review_score <= 4.5 ? binScore : fullScore;
     const zeroScore = isDetailList.review_score <= 0.1 ? '0' : isDetailList.review_score;
+    const isLogin = localStorage.getItem('isLogin');
+    const member_id = localStorage.getItem('member_id');
 
     const showDetail = () => {
         setIsReview(!isReview);
     }
     const reviewInsert = () => {
-        setIsReview(!isReview);
+        if(isLogin) {
+            setIsReview(!isReview);
+        }else {
+            alert('로그인 후 이용이 가능합니다.')
+            return false;
+        }
     };
 
     const copyAddress = () => {
@@ -46,6 +56,7 @@ const BoardDetail = ({onClose}) => {
              setIsDetailList(response.data);
             const detailBoard = response.data
             detailBoard.board_no = detailBoard[0].board_no;
+            detailBoard.member_id = detailBoard[0].member_id;
             detailBoard.board_name = detailBoard[0].board_name;
             detailBoard.board_content = detailBoard[0].board_content;
             detailBoard.board_phone = detailBoard[0].board_phone;
@@ -55,6 +66,14 @@ const BoardDetail = ({onClose}) => {
          });
     }, []);
 
+    const boardUpdate = (board_no) => {
+        if (confirm("수정하시겠습니까?")) {
+            localStorage.setItem('board_no', board_no);
+            navigate('/BoardUpdate')
+        } else {
+            return false;
+        }
+    }
 
 
     return (
@@ -102,6 +121,9 @@ const BoardDetail = ({onClose}) => {
                                 </div>
                                 <div className={'review_btn'}>
                                     <label>
+                                        {member_id === isDetailList.member_id ?
+                                            <span className={'boardUpdate'} onClick={() => boardUpdate(isDetailList.board_no)}>수정</span> : null
+                                        }
                                         <img src={'/src/assets/icons8-pen-24.png'} alt={'리뷰쓰기'} title={'리뷰쓰기'} onClick={reviewInsert}/>
                                         <span className={'reviewInsert'} onClick={reviewInsert}>리뷰쓰기</span>
                                     </label>

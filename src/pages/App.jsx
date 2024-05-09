@@ -8,6 +8,7 @@ import Join from "../components/member/Join.jsx";
 import Login from "../components/member/Login.jsx";
 import IdFind from "../components/member/IdFind.jsx";
 import PwFind from "../components/member/PwFind.jsx";
+import BoardUpdate from "../components/board/BoardUpdate.jsx";
 
 function App() {
   const test = async () => {
@@ -24,6 +25,7 @@ function App() {
     {path: '/Login', element: <Login/>},
     {path: '/IdFind', element: <IdFind/>},
     {path: '/PwFind', element: <PwFind/>},
+    {path: '/BoardUpdate', element: <BoardUpdate/>},
   ])
   
   return (

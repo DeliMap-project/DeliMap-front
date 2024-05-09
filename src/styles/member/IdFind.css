@@ -80,7 +80,7 @@
 .id_find_cert {
     margin-bottom: 10px;
 }
-.id_find_cert label {
+.id_find_cert div {
     display: flex;
     align-items: center;
 }

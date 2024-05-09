@@ -22,6 +22,7 @@ const BoardInsert = () => {
       }
   }
   const goInsert_btn = () => {
+      const member_id = localStorage.getItem('member_id');
 
       if(file_no === ''){
           alert('대표이미지를 입력해주세요.');
@@ -49,7 +50,7 @@ const BoardInsert = () => {
       }
 
       let param = {
-          member_id : '아이디1',
+          member_id : member_id,
           board_name : board_name,
           board_content : board_content,
           board_phone : board_phone,

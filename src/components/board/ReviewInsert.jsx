@@ -33,6 +33,9 @@ const ReviewInsert = ({onShow}) => {
 
     const reviewReg = () => {
         const board_no = localStorage.getItem('board_no');
+        const member_id = localStorage.getItem('member_id');
+        const member_nickname = localStorage.getItem('member_nickname');
+
         // let review_hashtag = review_hashtag.replace(/#/g, ', #').substring(2);
 
         if(review_content === ''){
@@ -40,8 +43,8 @@ const ReviewInsert = ({onShow}) => {
             return false
         }
         let param = {
-            member_id: '아이디2',
-            member_nickname: '닉네임2',
+            member_id: member_id,
+            member_nickname: member_nickname,
             review_content: review_content,
             review_score: review_score,
             review_hashtag: review_hashtag.replace(/#/g, ', #').substring(2),

@@ -23,6 +23,15 @@
     font-weight: 600;
     letter-spacing : -0.8px;
 }
+.reviewList_delete {
+    margin-left: auto;
+    transform: translateX(-40px);
+    cursor: pointer;
+    font-size: 14px;
+}
+.reviewList_delete:hover {
+    color: rgb(248, 179, 60);
+}
 .reviewList_img {
     border: 1px solid black;
     width: 330px;

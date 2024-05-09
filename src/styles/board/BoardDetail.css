@@ -130,16 +130,19 @@
     display: flex;
     align-items: center;
 }
+.boardUpdate {
+    cursor: pointer;
+}
+.boardUpdate:hover {
+    color: rgb(248, 179, 60);
+}
 .reviewInsert {
     cursor: pointer;
 }
 .review_btn img{
     margin-left: auto;
     cursor: pointer;
-
 }
-
-
 .borderLine {
     border: rgb(165, 164, 164) 7px solid;
     margin: 40px 0;

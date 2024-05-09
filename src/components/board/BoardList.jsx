@@ -10,6 +10,7 @@ const BoardList = () => {
     const [isListAll, setIsListAll ] = useState(false);
     const [board_list, setBoardList] = useState([]);
     const [hashtag_list, setHashtagList] = useState([]);
+    const isLogin = localStorage.getItem('isLogin');
 
     const boardToggle = () => {
         setIsList(!isList);
@@ -32,6 +33,19 @@ const BoardList = () => {
         axios.post('http://localhost:3300/board/list')
             .then(response => {
                 setBoardList(response.data);
+            });
+    }, []);
+    useEffect(() => {
+        const member_id = localStorage.getItem('member_id');
+
+        let param = {
+            member_id: member_id
+        }
+        axios.post('http://localhost:3300/member/orderMember', param)
+            .then(response => {
+                { isLogin ?
+                localStorage.setItem('member_nickname', response.data[0].member_nickname)
+                    : null }
             });
     }, []);
         return (

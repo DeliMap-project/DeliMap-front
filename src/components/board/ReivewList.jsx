@@ -1,15 +1,19 @@
 import '/src/styles/board/ReviewList.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 const ReviewList = () => {
 
+    const navigate = useNavigate();
+
     const [isReviewList, setIsReviewList ] = useState([]);
     const [isReviewHashTag, setIsReviewHashTag ] = useState([]);
+    const member_id = localStorage.getItem('member_id');
 
     // 리뷰 리스트
     useEffect(() => {
-        const board_no = localStorage.getItem('board_no');
+    const board_no = localStorage.getItem('board_no');
         let reviewParam = {
             board_no: board_no,
         }
@@ -24,6 +28,20 @@ const ReviewList = () => {
         setIsReviewHashTag(true);
     }
 
+    const reviewList_delete = (deleteReview_no) => {
+        if (confirm("리뷰를 삭제하시겠습니까?")) {
+            let deleteParam = {
+                review_no: deleteReview_no.toString()
+            }
+            console.log('deleteReview_no : ',deleteReview_no)
+            axios.post(`http://localhost:3300/review/deleteReview`, deleteParam).then(response => {
+                    location.reload();
+                });
+        } else {
+            return false;
+        }
+    }
+
     return(
         <>
 
@@ -35,6 +53,9 @@ const ReviewList = () => {
                             <label>
                                 <div className={'reviewList_profile'}></div>
                                 <span className={'reviewList_member_nickname'}>{ReviewList.member_nickname}</span>
+                                {member_id === ReviewList.member_id ?
+                                    <span className={'reviewList_delete'} onClick={() => reviewList_delete(ReviewList.review_no)}>삭제</span> : null
+                                }
                             </label>
                         </div>
                         <div className="reviewList_img">
