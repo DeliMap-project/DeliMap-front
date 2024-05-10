@@ -9,7 +9,8 @@ const BoardList = () => {
     const [isList, setIsList ] = useState(false);
     const [isListAll, setIsListAll ] = useState(false);
     const [board_list, setBoardList] = useState([]);
-    const [hashtag_list, setHashtagList] = useState([]);
+    const [hashtag_boardList, setHashtagList] = useState(false);
+    const [hashtag_detailList, setHashtag_detailList] = useState(false);
     const isLogin = localStorage.getItem('isLogin');
 
     const boardToggle = () => {
@@ -29,6 +30,7 @@ const BoardList = () => {
     const closeDetail =() => {
         setIsDetail(false);
     }
+
     useEffect(() => {
         axios.post('http://localhost:3300/board/list')
             .then(response => {
@@ -48,11 +50,24 @@ const BoardList = () => {
                     : null }
             });
     }, []);
+    const hashtagBoardList = (review_hashtag) => {
+        localStorage.setItem('review_hashtag', review_hashtag);
+        const hashtagBoard = localStorage.getItem('review_hashtag');
+        setHashtagList(true);
+        let hashtagParam = {
+            review_hashtag: '%' + hashtagBoard + '%'
+        }
+        axios.post(`http://localhost:3300/board/hashtagList`, hashtagParam).then(response => {
+            setHashtagList(response.data);
+        });
+    }
         return (
             <>
+                {hashtag_boardList ? <HashTagList/>
+                :
 
                 <div className={isListAll ? 'animatedAll' : 'normalAll'}>
-                    <div className={'modal-mask ' + (isList ? 'animated-button' : 'normal-button')}>
+                    <div id={'modal-mask'} className={'modal-mask ' + (isList ? 'animated-button' : 'normal-button')}>
                         <div className="modal-wrapper">
                             {isDetail ?
                                 <div className="modalAll-x drag-disable">
@@ -86,11 +101,11 @@ const BoardList = () => {
                                                         <div className="board_list_review">리뷰 : {boardList.review_cnt}</div>
                                                         <div className="board_list_hashtag">
                                                             {/*<span>{boardList.review_hashtag}</span>*/}
-                                                            <span>{boardList.review_hashtag.split(', ')[0]}</span>
-                                                            <span>{boardList.review_hashtag.split(', ')[1]}</span>
-                                                            <span>{boardList.review_hashtag.split(', ')[2]}</span>
-                                                            <span>{boardList.review_hashtag.split(', ')[3]}</span>
-                                                            <span>{boardList.review_hashtag.split(', ')[4]}</span>
+                                                            <span onClick={() => hashtagBoardList(boardList.review_hashtag.split(', ')[0])}>{boardList.review_hashtag.split(', ')[0]}</span>
+                                                            <span onClick={() => hashtagBoardList(boardList.review_hashtag.split(', ')[1])}>{boardList.review_hashtag.split(', ')[1]}</span>
+                                                            <span onClick={() => hashtagBoardList(boardList.review_hashtag.split(', ')[2])}>{boardList.review_hashtag.split(', ')[2]}</span>
+                                                            <span onClick={() => hashtagBoardList(boardList.review_hashtag.split(', ')[3])}>{boardList.review_hashtag.split(', ')[3]}</span>
+                                                            <span onClick={() => hashtagBoardList(boardList.review_hashtag.split(', ')[4])}>{boardList.review_hashtag.split(', ')[4]}</span>
                                                         </div>
                                                         <div className="board_list_img"><img src="/src/assets/고양이1.jpg" alt="이미지"/></div>
                                                         <hr className="list_hr"/>
@@ -105,6 +120,7 @@ const BoardList = () => {
                     </div>
                     {isDetail && <BoardDetail onClose={closeDetail}/>}
                 </div>
+                }
             </>
         )
 }

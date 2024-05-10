@@ -1,14 +1,19 @@
 import '/src/styles/board/ReviewList.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
+import HashTagList from "./HashTagList.jsx";
+import BoardList from "./BoardList.jsx";
+import BoardDetail from "./BoardDetail.jsx";
 import {useNavigate} from "react-router-dom";
+import Menu from "../menu/Menu.jsx";
 
 const ReviewList = () => {
 
     const navigate = useNavigate();
 
+
     const [isReviewList, setIsReviewList ] = useState([]);
-    const [isReviewHashTag, setIsReviewHashTag ] = useState([]);
+    const [isReviewHashTag, setIsReviewHashTag ] = useState(false);
     const member_id = localStorage.getItem('member_id');
 
     // 리뷰 리스트
@@ -25,7 +30,6 @@ const ReviewList = () => {
 
     const hashTagListView = (review_hashtag) => {
         localStorage.setItem('review_hashtag', review_hashtag);
-        setIsReviewHashTag(true);
     }
 
     const reviewList_delete = (deleteReview_no) => {
@@ -44,7 +48,6 @@ const ReviewList = () => {
 
     return(
         <>
-
             <div className={'reviewList_title'}>리뷰</div>
             {isReviewList.map(ReviewList => {
                 return (
@@ -61,7 +64,7 @@ const ReviewList = () => {
                         <div className="reviewList_img">
                             <img src="/src/assets/고양이1.jpg" alt="이미지"/>
                         </div>
-                        <div className={'reviewList_score'}>
+                        <div className={'reviewList_score drag-disable'}>
                             <label>
                                 {ReviewList.review_score >= 1 ?
                                     <img src={'/src/assets/icons8-fullstar-48.png'} id="review_score1" className="review_score1" alt="별점"/> :
@@ -102,9 +105,7 @@ const ReviewList = () => {
                     </div>
                 )
             })}
-
         </>
-
     )
 }
 

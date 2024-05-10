@@ -75,7 +75,6 @@ const BoardDetail = ({onClose}) => {
         }
     }
 
-
     return (
         <>
             {isReview ?
@@ -96,7 +95,7 @@ const BoardDetail = ({onClose}) => {
                             <div className={'detail_body'}>
                                 <div className={'detail_name'}>{isDetailList.board_name}</div>
                                 <div className={'detail_content'}>{isDetailList.board_content}</div>
-                                <div className={'detail_reviewScore'}>
+                                <div className={'detail_reviewScore drag-disable'}>
                                     <label>
                                         <img src={oneScore} alt={'별점'} title={'별점'}/>
                                         <img src={twoScore} alt={'별점'} title={'별점'}/>
