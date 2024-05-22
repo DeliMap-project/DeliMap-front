@@ -1,26 +1,53 @@
 .menu-btns {
     position: absolute;
-    top:20px;
-    left:100px;
-    z-index:99;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+    display: table;
+    height: 100vh;
 }
 .menu-btns .active{
-    color: white;
     background-color:LightSkyBlue;
+    border-radius: 100%;
 }
-.menu-btns .btns-wrapper {
-    display: flex;
+.btns-wrapper {
     background: white;
     /* padding:10px; */
-    box-shadow: 0 0 5px #444;
-    border-radius: 10px;
+    box-shadow: 0 0 1px #444;
     padding:5px;
+    display: table-cell;
+}
+.menu-btns ul {
+    padding: 0;
+    margin: 0;
 }
 .menu-btns ul li{
-    margin-left: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 ;
+}
+
+.active img{
+    width: 25px;
+    height: 25px;
+}
+.active button{
+    background-color:LightSkyBlue;
+    color: white;
 }
 .btn-border {
-    /* box-shadow: 0px 0px 5px #444; */
-    padding:10px;
-    border-radius: 10px;
+    width: 55px;
+    height: 55px;
+    border-radius: 100%;
+    padding: 0;
+    font-size: 12px;
+}
+.active .btn-border:hover {
+    border: 1px solid black;
+}
+.btn-border:hover {
+    border: 2px solid LightSkyBlue;
+}
+.btn-border:focus {
+    outline: none;
 }

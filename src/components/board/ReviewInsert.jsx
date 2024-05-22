@@ -1,6 +1,7 @@
 import '/src/styles/board/ReviewInsert.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const ReviewInsert = ({onShow}) => {
@@ -17,6 +18,7 @@ const ReviewInsert = ({onShow}) => {
     const [score5, setScore5] = useState('/src/assets/icons8-binstar-48.png');
     const fullScore = '/src/assets/icons8-fullstar-48.png';
     const binScore = '/src/assets/icons8-binstar-48.png';
+    const navigate = useNavigate();
 
     useEffect( () => {
         const board_no = localStorage.getItem('board_no');
@@ -52,7 +54,8 @@ const ReviewInsert = ({onShow}) => {
         }
         axios.post('http://localhost:3300/review/insert', param).then(response => {
         alert("등록 되었습니다.")
-        location.reload();
+            location.reload();
+
         });
     };
     const reviewCancel = () => {

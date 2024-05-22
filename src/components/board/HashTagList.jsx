@@ -57,16 +57,16 @@ const HashTagList = () => {
                                 <div className="hashTagList_modalAll-x drag-disable">
                                 <span onClick={hashtagBoardAllToggle}>
                                     {isHashtagListAll ?
-                                        <img className='toggle_open' src={'src/assets/icons8-back-64.png'} alt={'열기'}/> :
-                                        <img className='detail_open' src={'src/assets/icons8-forward-64.png'} alt={'닫기'}/> }
+                                        <img className='toggle_open' src={'/src/assets/icons8-back-64.png'} alt={'열기'}/> :
+                                        <img className='detail_open' src={'/src/assets/icons8-forward-64.png'} alt={'닫기'}/> }
                                 </span>
                                 </div>
                                 :
                                 <div className="hashTagList_modal-x drag-disable">
                             <span onClick={hashtagBoardToggle}>
                                 {isHashtagList ?
-                                    <img className='toggle_open' src={'src/assets/icons8-back-64.png'} alt={'열기'}/> :
-                                    <img className='toggle_close' src={'src/assets/icons8-forward-64.png'} alt={'닫기'}/>}
+                                    <img className='toggle_open' src={'/src/assets/icons8-back-64.png'} alt={'열기'}/> :
+                                    <img className='toggle_close' src={'/src/assets/icons8-forward-64.png'} alt={'닫기'}/>}
                             </span>
                                 </div>}
                             <div className="hashTagList_modal-container">

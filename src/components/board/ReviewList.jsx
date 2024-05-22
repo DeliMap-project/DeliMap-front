@@ -37,9 +37,8 @@ const ReviewList = () => {
             let deleteParam = {
                 review_no: deleteReview_no.toString()
             }
-            console.log('deleteReview_no : ',deleteReview_no)
             axios.post(`http://localhost:3300/review/deleteReview`, deleteParam).then(response => {
-                    location.reload();
+                location.reload();
                 });
         } else {
             return false;

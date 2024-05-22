@@ -2,7 +2,7 @@
     position: fixed;
     z-index: 101;
     top: 0;
-    right: 0;
+    right: 65px;
     height: 100%;
     animation: slide-in 0.6s ease-in;
     border-left: rgb(165, 164, 164) 7px solid;
