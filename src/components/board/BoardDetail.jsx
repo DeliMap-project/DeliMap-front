@@ -15,7 +15,9 @@ const BoardDetail = ({onClose}) => {
     const [isReview, setIsReview ] = useState(false);
     const [isAddressToggle, setIsAddressToggle ] = useState(false);
     const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
-    const [toast, setToast] = useState(false); // 토스트메시지
+    const [roadToast, setRoadToast] = useState(false); // 도로명토스트메시지
+    const [jibunToast, setJibunToast] = useState(false);
+    const [postToast, setPostToast] = useState(false);
 
     const fullScore = '/src/assets/icons8-fullstar-48.png';
     const binScore = '/src/assets/icons8-binstar-48.png';
@@ -44,50 +46,50 @@ const BoardDetail = ({onClose}) => {
         }
     };
 
-    const copyAddress = () => {
-        try {
-            navigator.clipboard.writeText(isDetailList.board_addressToggle).then(r =>
-                // 복사 성공 시 알림 표시
-                alert('주소가 복사되었습니다!')
-            );
-        } catch {
-            // 복사 실패 시 알림 표시
-            alert('주소복사에 실패했습니다!');
-        }
-    };
-    const copyJibun = () => {
-        try {
-            navigator.clipboard.writeText(isDetailList.jibun_address).then(r =>
-                // 복사 성공 시 알림 표시
-                alert('주소가 복사되었습니다!')
-            );
-        } catch {
-            // 복사 실패 시 알림 표시
-            alert('주소복사에 실패했습니다!');
-        }
-    };
-    const copyPostcode = () => {
-        try {
-            navigator.clipboard.writeText(isDetailList.postcode).then(r =>
-                // 복사 성공 시 알림 표시
-                alert('주소가 복사되었습니다!')
-            );
-        } catch {
-            // 복사 실패 시 알림 표시
-            alert('주소복사에 실패했습니다!');
-        }
-    };
+    const mapBoardDetailPage = () => {
+        navigate('/MapBoardDetail');
+    }
     const addressToggle = () => {
         setIsAddressToggle(!isAddressToggle);
     }
     const addressModalToggle = () =>{
         setIsAddressModalOpen(!isAddressModalOpen);
     }
-    const toastMessage = () => {
-        setTimeout(() => {
-            setToast(true);
-        }, 1000);
-
+    const toastMessage = (param) => {
+        if(param === 1) {
+            try {
+                navigator.clipboard.writeText(isDetailList.board_addressToggle).then(
+                    setTimeout(() => {
+                        setRoadToast(true);
+                    }, 300),
+                    setRoadToast(false),
+                )
+            } catch {
+                alert('주소복사에 실패했습니다!');
+            }
+        } else if (param === 2) {
+            try {
+                navigator.clipboard.writeText(isDetailList.jibun_address).then(
+                    setTimeout(() => {
+                        setJibunToast(true);
+                    }, 300),
+                    setJibunToast(false),
+                )
+            } catch {
+                alert('주소복사에 실패했습니다!');
+            }
+        }else if(param === 3){
+            try {
+                navigator.clipboard.writeText(isDetailList.postcode).then(
+                    setTimeout(() => {
+                        setPostToast(true);
+                    }, 300),
+                    setPostToast(false),
+                )
+            } catch {
+                alert('주소복사에 실패했습니다!');
+            }
+        }
     };
     // 상세보기
     useEffect( () => {
@@ -130,7 +132,9 @@ const BoardDetail = ({onClose}) => {
             {isReview ?
             <ReviewInsert onShow={showDetail}/> :
             <div className={'detail-container'}>
-                {toast && <div className={'copyToast'}><span>클립보드에 복사되었습니다.</span></div>}
+                {roadToast && <div className={'copyToast'}><span>도로명주소가 복사되었습니다.</span></div>}
+                {jibunToast && <div className={'copyToast'}><span>지번주소가 복사되었습니다.</span></div>}
+                {postToast && <div className={'copyToast'}><span>우편번호가 복사되었습니다.</span></div>}
                 <div className={'detail-wrapper'}>
                     <div className={'modal-close'} onClick={onClose}><span>X</span></div>
                     <div className={'detailList'}>
@@ -144,7 +148,7 @@ const BoardDetail = ({onClose}) => {
                                 </div>
                             </div>
                             <div className={'detail_body'}>
-                                <div className={'detail_name'}>{isDetailList.board_name}</div>
+                                <div className={'detail_name'} onClick={mapBoardDetailPage}>{isDetailList.board_name}</div>
                                 <div className={'detail_content'}>{isDetailList.board_content}</div>
                                 <div className={'detail_reviewScore drag-disable'}>
                                     <label>
@@ -171,15 +175,15 @@ const BoardDetail = ({onClose}) => {
                                         <div className={'detailAddressModal'}>
                                             <span className={'detailAddressModal-X'} onClick={() => {addressToggle(); addressModalToggle();}}>X</span>
                                             <div className={'detailAddressModal_address'}><span className={'detailAddressModal_address_tit'}>도로명</span> : {isDetailList.board_addressToggle}
-                                                <span onClick={toastMessage} className={'copyAddress'}>복사</span>
+                                                <span onClick={() => toastMessage(1)} className={'copyAddress'}>복사</span>
                                             </div>
                                             <div className={'detailAddressModal_jibun'}><span
                                                 className={'detailAddressModal_jibun_tit'}>지번</span> : {isDetailList.jibun_address}
-                                                <span onClick={copyJibun} className={'copyJibun'}>복사</span>
+                                                <span onClick={() => toastMessage(2)} className={'copyJibun'}>복사</span>
                                             </div>
                                             <div className={'detailAddressModal_postcode'}><span
                                                 className={'detailAddressModal_postcode_tit'}>우편번호</span> : {isDetailList.postcode}
-                                                <span onClick={copyPostcode} className={'copyPostcode'}>복사</span>
+                                                <span onClick={() => toastMessage(3)} className={'copyPostcode'}>복사</span>
                                             </div>
                                         </div> : null}
                                     </label>
