@@ -1,6 +1,7 @@
 import Menu from '/src/components/menu/Menu.jsx';
 import '../styles/default.css'
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import BoardListModal from "/src/components/board/BoardList.jsx";
 
 const { kakao } = window;
 
@@ -18,6 +19,7 @@ function DefaultLayer() {
         // <div id="map" style={{width: '1920px', height: '1080px'}}>
         <div id="map" style={{width: '100vw', height: '100vh'}}>
             <Menu/>
+            <BoardListModal/>
         </div>
     )
 }

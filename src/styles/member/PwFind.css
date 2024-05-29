@@ -1,0 +1,146 @@
+.pw_find_container {
+}
+.pw_find_wrap {
+    width: 500px;
+}
+.pw_find_tit {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.pw_find_tit label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pw_find_tit img{
+    position: relative;
+    left: 0;
+    cursor: pointer;
+}
+.pw_find_tit span{
+    position: relative;
+    font-size: 25px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 70px;
+}
+
+.pwFind_tit {
+    margin: 0 auto;
+    text-align: center;
+}
+.pw_find_pwPart {
+    width: 50%;
+    height: 50px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+    line-height: 50px;
+    color: black;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 500;
+    background-color: white;
+}
+.pw_find_pwPart:active {
+    background-color: white;
+    color: black;
+}
+.pw_find_idPart {
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 50%;
+    display: inline-block;
+    cursor: pointer;
+    line-height: 50px;
+    color: gray;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 500;
+}
+.pw_find_idWrap {
+    margin: 20px 0 10px 5px;
+}
+.pw_find_radio_txt {
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+.pw_find_radio_txt label{
+    display: flex;
+    align-items: center;
+}
+.pw_find_radio_txt input {
+    width: 18px;
+    height: 18px;
+}
+.pw_find_email {
+    margin-left: 3px;
+}
+.pw_find_cert {
+    margin-bottom: 10px;
+}
+.pw_find_cert div{
+    display: flex;
+    align-items: center;
+}
+
+.pw_find_idInput {
+    width: 96%;
+    height: 30px;
+    padding: 7px 0 7px 15px;
+    margin-bottom: 10px;
+}
+.pw_find_idInput:focus{
+    border-color: rgba(0,0,0,0);
+    outline: 1px solid rgb(248, 179, 60);
+}
+.pw_find_emailInput {
+    width: 70%;
+    height: 30px;
+    padding: 7px 0 7px 15px;
+}
+.pw_find_emailInput:focus{
+    border-color: rgba(0,0,0,0);
+    outline: 1px solid rgb(248, 179, 60);
+}
+.pw_find_certBtn {
+    width: 30%;
+    height: 48px;
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(248, 179, 60);
+    color: white;
+    margin-left: 11px;
+    border-radius: 5px;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+.pw_find_certBtn:hover{
+    border-color: rgb(248, 179, 60);
+}
+.pw_find_certBtn:focus{
+    outline: none;
+}
+.pw_find_certNumber {
+    width: 94%;
+    height: 30px;
+    padding: 10px 10px 10px 15px;
+}
+.pw_find_certNumber:focus {
+    border-color: rgba(0,0,0,0);
+    outline: 1px solid rgb(248, 179, 60);
+}
+.pw_find_btn {
+    width: 95%;
+    text-align: center;
+    background-color: rgb(248, 179, 60);
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-top: 20px;
+}
+.pw_find_btn_txt {
+    color: white;
+}

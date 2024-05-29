@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800&family=Jua&family=Ultra&display=swap');
-
 .detail-container {
     position: fixed;
     z-index: 99;
     top: 0;
-    right: 380px;
+    right: 445px;
     height: 100%;
     animation: slide-in 0.3s ease-in;
+    display: flex;
+    justify-content: center;
 }
 .detail-wrapper {
     width: 400px;
@@ -69,6 +69,7 @@
     font-size: 18px;
     font-family: "Gothic A1", sans-serif;
     font-weight: 700;
+    cursor: pointer;
 }
 .detail_content {
     margin-top: 3px;
@@ -106,22 +107,85 @@
 }
 .detail_address {
     margin-top: 20px;
+    position: relative;
 }
 .detail_address label {
     display: flex;
     align-items: center;
 }
-.detail_address span{
-    margin-left: 7px;
+.address_txt {
     font-size: 17px;
-    font-weight: 400;
+    margin-left: 7px;
 }
 .copyAddress {
     cursor: pointer;
-    padding-left: 10px;
+    margin-left: 5px;
+    font-weight: 400;
+    font-size: 14px;
 }
 .copyAddress:hover {
     color: rgb(248, 179, 60);
+}
+.copyJibun {
+    cursor: pointer;
+    margin-left: 5px;
+    font-weight: 400;
+    font-size: 14px;
+}
+.copyJibun:hover {
+    color: rgb(248, 179, 60);
+}
+.copyPostcode {
+    cursor: pointer;
+    margin-left: 5px;
+    font-weight: 400;
+    font-size: 14px;
+}
+.copyPostcode:hover {
+    color: rgb(248, 179, 60);
+}
+.address_toggle {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    margin-left: 7px;
+}
+.detailAddressModal {
+    position: absolute;
+    width: 330px;
+    height: auto;
+    transform: translateY(63px);
+    background-color: white;
+    box-shadow: 0 0 2px;
+    border-radius: 10px;
+    padding: 7px 10px 0 10px;
+}
+.detailAddressModal-X {
+    float: right;
+    margin: -2px 3px 0 0;
+    cursor: pointer;
+    color: gray;
+}
+.detailAddressModal_address {
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+.detailAddressModal_address_tit{
+    font-family: "Jua", sans-serif;
+}
+.detailAddressModal_jibun {
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+.detailAddressModal_jibun_tit{
+    font-family: "Jua", sans-serif;
+}
+.detailAddressModal_postcode {
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+.detailAddressModal_postcode_tit {
+    font-family: "Jua", sans-serif;
 }
 .review_btn {
     margin-top: 20px;
@@ -130,16 +194,33 @@
     display: flex;
     align-items: center;
 }
+.boardUpdate {
+    cursor: pointer;
+}
+.boardUpdate:hover {
+    color: rgb(248, 179, 60);
+}
 .reviewInsert {
     cursor: pointer;
 }
 .review_btn img{
     margin-left: auto;
     cursor: pointer;
-
 }
-
-
+.copyToast {
+    position: fixed;
+    width: 250px;
+    height: 25px;
+    background-color: #16d116;
+    color: black;
+    padding: 15px 0 15px 25px;
+    border-radius: 10px;
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    animation: toast-in 1.5s ease forwards;
+    z-index: 105;
+}
 .borderLine {
     border: rgb(165, 164, 164) 7px solid;
     margin: 40px 0;
@@ -151,4 +232,18 @@
     user-select: none;
     -moz-user-select:none;
     -webkit-touch-callout: none;
+}
+@keyframes toast-in {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(20%);
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
 }

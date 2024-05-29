@@ -2,7 +2,7 @@
     position: fixed;
     z-index: 101;
     top: 0;
-    right: 0;
+    right: 65px;
     height: 100%;
     animation: slide-in 0.6s ease-in;
     border-left: rgb(165, 164, 164) 7px solid;
@@ -152,13 +152,21 @@
     }
 }
 /*----------------------리스트--------------------------*/
-.board_local {
-    font-size: 20px;
-    font-weight: bold;
+.Hashtag_board_local {
     margin-left: 20px;
     margin-top: 20px;
+}
+.board_local_tit {
     color: rgba(0, 0, 0, 0.7);
-
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.hashTagList_close {
+    float: right;
+    font-size: 20px;
+    margin-right: 20px;
+    cursor: pointer;
 }
 .board_list {
     margin: 30px auto 0 auto;

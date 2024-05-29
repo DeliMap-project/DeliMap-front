@@ -3,17 +3,23 @@ import '/src/styles/board/HashTagList.css';
 import {useState, useEffect } from "react";
 import axios from "axios";
 import ReviewInsert from "./ReviewInsert.jsx";
-const HashTagList = () => {
-    const [isDetail, setIsDetail ] = useState(false);
-    const [isList, setIsList ] = useState(false);
-    const [isListAll, setIsListAll ] = useState(false);
-    const [hashtag_list, setHashtagList] = useState([]);
+import BoardList from "./BoardList.jsx";
 
-    const boardToggle = () => {
-        setIsList(false);
+const HashTagList = () => {
+
+
+    const [isDetail, setIsDetail ] = useState(false);
+    const [isHashtagList, setIsHashtagList ] = useState(false);
+    const [isHashtagListAll, setIsHashtagListAll ] = useState(false);
+    const [isBoardList, setIsBoardList ] = useState(false);
+    const [hashtag_list, setHashtagList] = useState([]);
+    const review_hashtag = localStorage.getItem('review_hashtag');
+
+    const hashtagBoardToggle = () => {
+        setIsHashtagList(!isHashtagList);
     };
-    const boardAllToggle = () => {
-        setIsListAll(false);
+    const hashtagBoardAllToggle = () => {
+        setIsHashtagListAll(!isHashtagListAll);
     };
     const boardDetail = (board_no) => {
         // setIsDetail((isDetail) => !isDetail);
@@ -26,9 +32,11 @@ const HashTagList = () => {
     const closeDetail =() => {
         setIsDetail(false);
     }
+    const hashTagList_close = () => {
+        setIsBoardList(true);
+    }
 
     useEffect( () => {
-        const review_hashtag = localStorage.getItem('review_hashtag');
         let param = {
             review_hashtag: '%' + review_hashtag + '%',
         }
@@ -37,30 +45,36 @@ const HashTagList = () => {
                 setHashtagList(response.data);
             });
     }, []);
-        return (
-            <>
-                <div className={isListAll ? 'animatedAll' : 'normalAll'}>
-                    <div className={'hashTagList_modal-mask ' + (isList ? 'animated-button' : 'normal-button')}>
+
+    return (
+    <>
+        {isBoardList ? <BoardList/>
+            :
+            <div className={isHashtagListAll ? 'animatedAll' : 'normalAll'}>
+                    <div id={'hashTagList_modal-mask'} className={'hashTagList_modal-mask ' + (isHashtagList ? 'animated-button' : 'normal-button')}>
                         <div className="hashTagList_modal-wrapper">
                             {isDetail ?
                                 <div className="hashTagList_modalAll-x drag-disable">
-                                <span onClick={boardAllToggle}>
-                                    {isListAll ?
-                                        <img className='toggle_open' src={'src/assets/icons8-back-64.png'} alt={'열기'}/> :
-                                        <img className='detail_open' src={'src/assets/icons8-forward-64.png'} alt={'닫기'}/> }
+                                <span onClick={hashtagBoardAllToggle}>
+                                    {isHashtagListAll ?
+                                        <img className='toggle_open' src={'/src/assets/icons8-back-64.png'} alt={'열기'}/> :
+                                        <img className='detail_open' src={'/src/assets/icons8-forward-64.png'} alt={'닫기'}/> }
                                 </span>
                                 </div>
                                 :
                                 <div className="hashTagList_modal-x drag-disable">
-                            <span onClick={boardToggle}>
-                                {isList ?
-                                    <img className='toggle_open' src={'src/assets/icons8-back-64.png'} alt={'열기'}/> :
-                                    <img className='toggle_close' src={'src/assets/icons8-forward-64.png'} alt={'닫기'}/>}
+                            <span onClick={hashtagBoardToggle}>
+                                {isHashtagList ?
+                                    <img className='toggle_open' src={'/src/assets/icons8-back-64.png'} alt={'열기'}/> :
+                                    <img className='toggle_close' src={'/src/assets/icons8-forward-64.png'} alt={'닫기'}/>}
                             </span>
                                 </div>}
                             <div className="hashTagList_modal-container">
                                 <div className="hashTagList_modal-header">
-                                    <div className="board_local">영등포구 여의도동1</div>
+                                    <div className="Hashtag_board_local">
+                                        <span className={'board_local_tit'}>{review_hashtag}</span>
+                                        <span className={'hashTagList_close'} onClick={hashTagList_close}>X</span>
+                                    </div>
                                     <slot name="header">
                                         <div className="board_list">
                                             {hashtag_list.map(hashtagList => {
@@ -71,7 +85,6 @@ const HashTagList = () => {
                                                         </div>
                                                         <div className="board_list_content">{hashtagList.board_content}</div>
                                                         <div className="board_list_phone">{hashtagList.board_phone}</div>
-                                                        <div className="board_list_review">리뷰 : {hashtagList.review_cnt}</div>
                                                         <div className="board_list_img"><img src="/src/assets/고양이1.jpg" alt="이미지"/></div>
                                                         <hr className="list_hr"/>
                                                     </div>
@@ -85,6 +98,7 @@ const HashTagList = () => {
                     </div>
                     {isDetail && <BoardDetail onClose={closeDetail}/>}
                 </div>
+                }
             </>
         )
 }

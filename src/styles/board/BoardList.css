@@ -2,7 +2,7 @@
     position: fixed;
     z-index: 100;
     top: 0;
-    right: 0;
+    right: 65px;
     height: 100%;
     animation: slide-in 0.6s ease-in;
     border-left: rgb(165, 164, 164) 7px solid;
@@ -17,7 +17,7 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    transform: translateX(-45px);
+    transform: translateX(-47px);
     background-color: rgba(0,0,0,0.1);
     display: flex;
     justify-content: center;
@@ -213,46 +213,6 @@
     margin: 30px 20px 10px 0;
     border: 0.3px solid rgba(0, 0, 0, 0.1);
 }
-
-/*---------------------------게시판-------------------------*/
-
-
-/*--------------------------리뷰창-------------------------*/
-
-/*---------------------------댓글창-------------------------*/
-
-.comment_body {
-    width: 80%;
-    margin: 0 auto;
-}
-.comment_title {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-.comment_member_profile {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    width: 94%;
-}
-.comment_member_profile-img {
-    border: 1px solid black;
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-    margin-right: 20px;
-}
-.comment_member_date {
-    margin-left: auto;
-    font-size: 14px;
-}
-.comment_content {
-    margin-left: 10px;
-    margin-bottom: 20px;
-}
-
-
 
 .drag-disable {
     -ms-user-select: none;

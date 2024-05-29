@@ -27,8 +27,8 @@ body{
 .insert_name {
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-    width: 100%;
-    padding: 3px;
+    width: 97%;
+    padding: 10px;
 }
 .insert_name:focus {
     outline: none ;
@@ -41,8 +41,8 @@ body{
 }
 .insert_content {
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-    width: 100%;
-    padding: 15px 5px 5px 5px;
+    width: 97.5%;
+    padding: 10px 5px 5px 10px;
     height: 70px;
     resize: none;
     overflow-y: scroll;
@@ -70,6 +70,65 @@ body{
 .insert_address:focus {
     outline: none ;
 }
+.addressModalClose {
+    transform: translate(20px, -60px);
+    float: right;
+    background-color: rgba(0,0,0,0.1);
+    padding: 3px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    line-height: 25px;
+}
+.addressModalClose:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.addressModalClose span{
+    font-size: 13px;
+}
+.zipCode {
+    width: 13%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.addressToggle {
+    margin-left: 30px;
+    padding: 10px;
+    color: gray;
+    background-color: rgba(0,0,0,0.1);
+}
+.addressToggle:focus,
+.addressToggle:focus-visible {
+    border-color: white;
+    outline: none;
+}
+.addressToggle:hover {
+    outline: none;
+    border-color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.zipCode:focus {
+    outline: none;
+}
+.roadAddress {
+    width: 97%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+.roadAddress:focus {
+    outline: none;
+}
+.detailAddress {
+    width: 97%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+.detailAddress:focus {
+    outline: none;
+}
 .tasty_phone {
     margin: 15px 15px 15px 20px;
 }
@@ -79,8 +138,8 @@ body{
 .insert_phone {
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-    width: 100%;
-    padding: 3px;
+    width: 97%;
+    padding: 10px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -106,8 +165,8 @@ input[type='number'] {
 .insert_file {
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-    width: 100%;
-    padding: 3px;
+    width: 97%;
+    padding: 10px;
 }
 .insert_file:focus {
     outline: none ;
@@ -126,8 +185,8 @@ input[type='number'] {
 .insert_num {
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-    width: 100%;
-    padding: 3px;
+    width: 97%;
+    padding: 10px;
 }
 .insert_num:focus {
     outline: none ;

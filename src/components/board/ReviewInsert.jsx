@@ -1,6 +1,7 @@
 import '/src/styles/board/ReviewInsert.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const ReviewInsert = ({onShow}) => {
@@ -17,6 +18,7 @@ const ReviewInsert = ({onShow}) => {
     const [score5, setScore5] = useState('/src/assets/icons8-binstar-48.png');
     const fullScore = '/src/assets/icons8-fullstar-48.png';
     const binScore = '/src/assets/icons8-binstar-48.png';
+    const navigate = useNavigate();
 
     useEffect( () => {
         const board_no = localStorage.getItem('board_no');
@@ -33,21 +35,27 @@ const ReviewInsert = ({onShow}) => {
 
     const reviewReg = () => {
         const board_no = localStorage.getItem('board_no');
+        const member_id = localStorage.getItem('member_id');
+        const member_nickname = localStorage.getItem('member_nickname');
+
+        // let review_hashtag = review_hashtag.replace(/#/g, ', #').substring(2);
+
         if(review_content === ''){
             alert("리뷰 내용을 입력해주세요.");
             return false
         }
         let param = {
-            member_id: '아이디2',
-            member_nickname: '닉네임2',
+            member_id: member_id,
+            member_nickname: member_nickname,
             review_content: review_content,
             review_score: review_score,
-            review_hashtag: review_hashtag,
+            review_hashtag: review_hashtag.replace(/#/g, ', #').substring(2),
             board_no: board_no,
         }
         axios.post('http://localhost:3300/review/insert', param).then(response => {
         alert("등록 되었습니다.")
-        location.reload();
+            location.reload();
+
         });
     };
     const reviewCancel = () => {
@@ -132,7 +140,7 @@ const ReviewInsert = ({onShow}) => {
         <>
             <div className="review-modal-mask">
                 <div className="review-modal-wrapper">
-                    <div className="review-modal-x drag-disable" onClick={onShow}>
+                    <div className="review-modal-x drag-disable" onClick={reviewCancel}>
                         <span>X</span>
                     </div>
                     <div className="review-modal-container">
