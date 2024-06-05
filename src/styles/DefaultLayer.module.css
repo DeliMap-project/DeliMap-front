@@ -1,3 +1,5 @@
+
+
 .modal-mask {
     position: fixed;
     z-index: 100;
@@ -33,27 +35,6 @@
     font-size: 22px;
     cursor: pointer;
 }
-.modalAll-x {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    transform: translateX(-440px);
-    background-color: rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: center;
-    border-radius: 6px 0 0 6px;
-    cursor: pointer;
-    animation: detailSlide-in 0.3s ease-in;
-}
-.modalAll-x:hover {
-    background-color: rgb(248, 179, 60);
-    color: white;
-
-}
-.modalAll-x span {
-    font-size: 22px;
-    cursor: pointer;
-}
 .modal-container {
     overflow-y: scroll;
     height: 100%;
@@ -64,52 +45,21 @@
 .modal-container::-webkit-scrollbar {
     display: none; /* 크롬, 사파리, 오페라, 엣지 */
 }
-
-.modal-header, .modal-footer {
-    /* 스타일 설정 */
-}
 .animated-button {
     animation: slide-out 0.6s ease-in-out;
     animation-fill-mode: both;
 }
 .animated-button::after {
 }
-.normal-button{
-
-}
-.animatedAll {
-    animation: all-out 0.6s ease-out;
-    animation-fill-mode: forwards;
-    position: fixed;
-    z-index: 99;
-    top: 0;
-    right: 0;
-    height: 100%;
-}
-.normalAll {
-    animation: all-in 0.6s ease-out;
-    animation-fill-mode: forwards;
-    position: fixed;
-    z-index: 99;
-    top: 0;
-    right: 0;
-    height: 100%;
-}
-.toggle_open {
+.toggle-open {
     width: 40px;
     height: 40px;
     cursor: pointer;
 }
-.toggle_close {
+.toggle-close {
     width: 40px;
     height: 40px;
     cursor: pointer;
-}
-.detail_open {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-
 }
 @keyframes slide-in {
     from {
@@ -152,7 +102,7 @@
     }
 }
 /*----------------------리스트--------------------------*/
-.board_local {
+.local-name {
     font-size: 20px;
     font-weight: bold;
     margin-left: 20px;
@@ -160,55 +110,52 @@
     color: rgba(0, 0, 0, 0.7);
 
 }
-.board_list {
+.board-list {
     margin: 30px auto 0 auto;
     height: 270px;
 }
-.board_list_wrap {
+.board-list-body {
     margin-left: 20px;
 }
-.board_list_name {
+.board-list-name {
     font-size: 19px;
     padding-bottom: 5px;
     padding-top: 10px;
     font-weight: 600;
 }
-.board_list_name span{
+.board-list-name span{
     cursor: pointer;
 }
-.board_list_content {
+.board-list-business-type {
     font-size: 14px;
 }
-.board_list_phone {
+.board-list-phone {
     display: inline;
 }
-.board_list_review {
+.board-list-review {
     display: inline;
     margin-left: 10px;
 }
-.board_list_hashtag {
+.board-list-hashtag {
     height: 21px;
 }
-.board_list_hashtag span{
+.board-list-hashtag span{
     cursor: pointer;
     color: #959595;
 }
-.board_list_address{
-
-}
-.board_list_img {
+.board-list-img {
     border: 1px solid black;
     width: 250px;
     height: 150px;
     margin: 10px auto 20px auto;
 }
-.board_list_img img {
+.board-list-img img {
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
     background-size : cover;
 }
-.list_hr {
+.list-line {
     width: 95%;
     margin: 30px 20px 10px 0;
     border: 0.3px solid rgba(0, 0, 0, 0.1);
@@ -222,3 +169,18 @@
     -moz-user-select:none;
     -webkit-touch-callout: none;
 }
+
+/*-------Map css--------*/
+.location-myLocation {
+    position: absolute;
+    left: 10px;
+    bottom: 50px;
+    z-index: 10;
+    cursor: pointer;
+}
+.location-infoWindow-txt {
+    width: 320px;
+    height: 180px;
+    padding: 5px;
+}
+

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import BoardListModal from '/src/components/board/BoardList.jsx'
+// import BoardListModal from '/src/components/board/BoardList.jsx'
 import '/src/styles/menu/Menu.css';
 import axios from "axios";
 import boardInsert from "/src/components/board/BoardInsert.jsx";
 import {useNavigate} from "react-router-dom";
-import BoardList from "/src/components/board/BoardList.jsx";
+// import BoardList from "/src/components/board/BoardList.jsx";
 
 const Menu = () => {
     const navigate = useNavigate();

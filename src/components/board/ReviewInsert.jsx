@@ -35,7 +35,7 @@ const ReviewInsert = ({onShow}) => {
 
     const reviewReg = () => {
         const board_no = localStorage.getItem('board_no');
-        const member_id = localStorage.getItem('member_id');
+        const member_id = localStorage.getItem('board_member_id');
         const member_nickname = localStorage.getItem('member_nickname');
 
         // let review_hashtag = review_hashtag.replace(/#/g, ', #').substring(2);

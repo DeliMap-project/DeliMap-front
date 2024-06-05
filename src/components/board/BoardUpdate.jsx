@@ -22,8 +22,6 @@ const BoardUpdate = () => {
         axios.post('http://localhost:3300/board/detail', param).then(response => {
             setUpdate_board_list(response.data[0]);
             const updateBoardList = response.data[0]
-            console.log('response.data : ', response.data)
-            console.log('update_board_list : ', updateBoardList)
             // updateBoardList.board_name = updateBoardList.board_name;
             // updateBoardList.update_board_content = updateBoardList[0].board_content;
             // updateBoardList.update_board_phone = updateBoardList[0].board_phone;
