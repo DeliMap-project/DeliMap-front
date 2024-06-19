@@ -1,0 +1,223 @@
+body {
+    background-color: rgba(0,0,0,0.1);
+
+}
+.map-detail-container {
+    width: 700px;
+}
+.map-detail-wrap {
+    padding: 20px 0 60px 0;
+    background-color: #FFFFFFFF;
+    margin: 20px auto;
+}
+.map-detail-tit {
+    text-align: center;
+}
+.map-detail-tit span {
+    font-size: 30px;
+}
+.map-detail-txt01 {
+    text-align: center;
+    margin: 0 auto;
+}
+.map-detail-review-score{
+    margin: 15px 0 10px 0;
+}
+.map-detail-review-score label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.map-detail-business-type {
+    margin: 10px 0;
+    text-align: center;
+}
+.map-detail-board-business-type {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.map-detail-line {
+    color: rgba(0,0,0,0.1);
+}
+.map-detail-review-score img {
+    width: 30px;
+    height: 30px;
+    padding-top: 5px;
+}
+.map-detail-review-score-txt {
+    font-size: 18px;
+    font-weight: bold;
+}
+.map-detail-review-score-review-cnt {
+    margin-left: 10px;
+}
+.map-detail-txt02 {
+    margin: 20px 0 ;
+    text-align: center;
+}
+.map-detail-home {
+    display: inline-table;
+    cursor: pointer;
+    padding: 0 15px;
+}
+.map-detail-home img {
+    width: 40px;
+    height: 40px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.map-detail-save {
+    display: inline-table;
+    cursor: pointer;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+    padding: 0 15px;
+}
+.map-detail-save img {
+    width: 40px;
+    height: 40px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.map-detail-share {
+    display: inline-table;
+    padding: 0 15px;
+
+}
+.map-detail-share img {
+    width: 40px;
+    height: 40px;
+    display: table-cell;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.detail-info {
+    overflow: hidden;
+    margin: 0 auto;
+    display: table;
+}
+.detail-info div:first-child {
+    float: left;
+    line-height: 60px;
+}
+.map-detail-address01 {
+    text-align: left;
+    float: right;
+}
+.map-detail-road {
+    margin-left: 7px;
+}
+.map-detail-road span:first-child{
+    font-size: 14px;
+}
+.map-detail-road span:nth-child(2){
+    color: rgba(0,0,0,0.1);
+}
+.map-detail-road-copy {
+    font-size: 14px;
+    margin-left: 10px;
+}
+.map-detail-road-copy:hover {
+    color: rgb(248, 179, 60);
+    cursor: pointer;
+}
+.map-detail-address02 {
+    text-align: left;
+}
+.map-detail-jibun {
+    margin-right: 20px;
+    margin-left: 7px;
+}
+.map-detail-jibun span:first-child{
+    font-size: 14px;
+}
+.map-detail-jibun span:nth-child(2){
+    color: rgba(0,0,0,0.1);
+}
+.map-detail-phone {
+    margin-top: 15px;
+}
+.map-detail-phone label {
+    display: flex;
+    align-items: center;
+}
+.map-detail-board-phone {
+    margin-left: 7px;
+}
+.map-detail-service {
+    margin-top: 15px;
+}
+.map-detail-service label {
+    display: flex;
+    align-items: center;
+}
+.map-detail-service img {
+    width: 24px;
+    height: 24px;
+}
+.map-detail-board-service {
+    margin-left: 7px;
+}
+/* 장소 */
+.map-wrap {
+    margin: 15px 0;
+    padding: 30px 0;
+    background-color: #FFFFFFFF;
+}
+.map-content-tit {
+    padding: 0 30px 20px 30px;
+}
+.map-content-tit span{
+    font-size: 22px;
+    font-weight: bold;
+}
+/* 리뷰 */
+.review-wrap {
+    margin: 15px 0 ;
+    padding: 30px 0 0 0;
+    background-color: #FFFFFFFF;
+}
+.address-copy-toast {
+    position: absolute;
+    width: 200px;
+    height: 25px;
+    background-color: #16d116;
+    padding: 15px 0 15px 25px;
+    border-radius: 10px;
+    animation: toast-in 1.5s ease forwards;
+    z-index: 105;
+}
+.address-copy-toast span {
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: black;
+
+}
+
+/* 기타 */
+@keyframes toast-in {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(20%);
+    }
+    100% {
+        opacity: 0;
+        display: none;
+        visibility:hidden
+    }
+
+}
+.drag-disable {
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    -moz-user-select:none;
+    -webkit-touch-callout: none;
+}

@@ -33,7 +33,8 @@ const Login = () => {
         axios.post('http://localhost:3300/member/loginMember', param).then(response => {
             if(response.data[0].cnt === 1){
                 setIsLogin(true);
-                localStorage.setItem('member_id', member_id);
+                localStorage.setItem('board_member_id', member_id);
+                localStorage.setItem('member_member_id', member_id);
                 localStorage.setItem('isLogin', isLogin);
                 navigate('/')
             }else {

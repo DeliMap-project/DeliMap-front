@@ -14,8 +14,9 @@ import MapBoardDetail from "../components/board/MapBoardDetail.jsx";
 function App() {
   const test = async () => {
     let res = await axios.get('https://api.kbland.kr/land-property/property/getPsaleExpsStatcList');
-    console.log(res.data.dataBody.data)
+    // console.log(res.data.dataBody.data)
   }
+  const board_no = localStorage.getItem('board_no');
 
   const router = createBrowserRouter([
     {path: '/', element: <DefaultLayer/>},
@@ -27,7 +28,7 @@ function App() {
     {path: '/IdFind', element: <IdFind/>},
     {path: '/PwFind', element: <PwFind/>},
     {path: '/BoardUpdate', element: <BoardUpdate/>},
-    {path: '/MapBoardDetail', element: <MapBoardDetail/>},
+    {path: `/MapBoardDetail:${board_no}`, element: <MapBoardDetail/>},
   ])
   
   return (
