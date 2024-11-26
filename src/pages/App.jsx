@@ -10,6 +10,7 @@ import IdFind from "../components/member/IdFind.jsx";
 import PwFind from "../components/member/PwFind.jsx";
 import BoardUpdate from "../components/board/BoardUpdate.jsx";
 import MapBoardDetail from "../components/board/MapBoardDetail.jsx";
+import Korea from "../components/News/Korea.jsx";
 
 function App() {
   const test = async () => {
@@ -19,7 +20,8 @@ function App() {
   const board_no = localStorage.getItem('board_no');
 
   const router = createBrowserRouter([
-    {path: '/', element: <DefaultLayer/>},
+    {path: '/Korea', element: <DefaultLayer/>},
+    {path: '/', element: <Korea/>},
     {path: '/route1', element: <RouteTest1/>},
     {path: '/route2', element: <RouteTest2/>},
     {path: '/BoardInsert', element: <BoardInsert/>},
